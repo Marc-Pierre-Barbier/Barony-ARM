@@ -11,11 +11,7 @@
 
 #pragma once
 
-#ifdef __arm__
-typedef float real_t;
-#else
 typedef double real_t;
-#endif
 
 #include <cstdint>
 #include <cstddef>

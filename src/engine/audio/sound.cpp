@@ -40,6 +40,9 @@ void setAudioDevice(const std::string& device)
 {
 	return;
 }
+void setRecordDevice(const std::string& device) {
+	
+}
 #endif
 
 #ifdef USE_FMOD
