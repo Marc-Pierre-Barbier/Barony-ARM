@@ -78,7 +78,7 @@ bool Shader::compile(const char* source, size_t len, Shader::Type type) {
     // see https://www.khronos.org/opengl/wiki/Core_Language_(GLSL)
     // for more details
     
-    const char version[] = "#version 150 core\n";
+    const char version[] = "#version 140\n";
     const char* sources[2] = {version, source};
     const int lens[2] = {(int)sizeof(version) - 1, (int)len};
     
@@ -97,6 +97,8 @@ bool Shader::compile(const char* source, size_t len, Shader::Type type) {
         char log[1024];
         GL_CHECK_ERR(glGetShaderInfoLog(shader, (GLint)sizeof(log), nullptr, (GLchar*)log));
         printlog("failed to compile shader: %s", log);
+        printlog("shader code: %s", source);
+
         GL_CHECK_ERR(glDeleteShader(shader));
         return false;
     }
